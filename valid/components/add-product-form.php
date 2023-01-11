@@ -4,6 +4,8 @@ require_once './inc/functions.php';
 
 $message = '';
 
+$id = $_GET['id'] ?? '';
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
 
