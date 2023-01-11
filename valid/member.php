@@ -1,9 +1,8 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['username']))
-{
-    header('Location: login.php?errmsg=' . 'You need to login.');
+if (!isset($_SESSION['username'])) {
+    header('Location: index.php');
     exit;
 }
 ?>
