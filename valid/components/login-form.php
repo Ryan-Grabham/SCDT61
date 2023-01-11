@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
     if ($valid) {
        
-      $user = $controllers->members()->login($email['value'], $password['value']);
+      $user = $controllers->members()->login($email['value'], $password['value']); //reference for manage users
 
       if (!$user) {
           $message = "Incorrect password and/or username";
