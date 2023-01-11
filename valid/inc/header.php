@@ -25,6 +25,9 @@
         <li class="nav-item">
           <a class="nav-link" href="./manage-users.php">Manage Users</i></a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./manage-products.php">Manage Products</i></a>
+        </li>
       </ul>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">

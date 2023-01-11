@@ -1,7 +1,7 @@
 <?php
 require_once './inc/functions.php';
 
-$members = $controllers->members()->getAll();
+$products = $controllers->products()->getAll();
 ?>
 
 <table class="table table-secondary table-striped">
@@ -14,18 +14,18 @@ $members = $controllers->members()->getAll();
         </tr>
     </thead>
     <?php
-    foreach ($members as $member):
+    foreach ($products as $product):
         ?>
         <tbody>
 
 
-            <td><?= $member['firstname'] ?></td>
-            <td><?= $member['lastname'] ?></td>
-            <td><?= $member['email'] ?></td>
+            <td><?= $product['firstname'] ?></td>
+            <td><?= $product['lastname'] ?></td>
+            <td><?= $product['email'] ?></td>
 
             <td>
-                <a class="btn btn-success" href="user-edit.php?id=<?=$member['id'] ?>"> Edit</a>
-                <a class="btn btn-danger" href="user-delete.php?id=<?=$member['id'] ?>">Delete</a>
+                <a class="btn btn-success" href="product-edit.php?id=<?=$product['id'] ?>"> Edit</a>
+                <a class="btn btn-danger" href="product-delete.php?id=<?=$product['id'] ?>">Delete</a>
             </td>
 
         </tbody>

@@ -57,7 +57,6 @@ class MemberController
         $sql = "UPDATE users 
                 SET firstname = :firstname, 
                     lastname = :lastname, 
-                    password = :password, 
                     email = :email
                 WHERE id = :id;";
         

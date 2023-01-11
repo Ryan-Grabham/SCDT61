@@ -13,7 +13,8 @@ foreach ($products as $product):
             <div class="card-body">
                 <h5 class="card-title"><?= $product['name'] ?></h5>
                 <p class="card-text"><?= $product['description'] ?></p>
-                <p class="card-text"><?= $product['price'] ?></p>
+                <p class="card-text">£<?= $product['price'] ?></p>
+                <a class="btn btn-primary" href="product.php?id= <?= $product['id']?>" >Details</a>
             </div>
         </div>
     </div>
