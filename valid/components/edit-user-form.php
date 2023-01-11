@@ -10,8 +10,6 @@ if (!empty($id)){
 
     $user = $controllers->members()->get($id);
 
-
-
     if ($_SERVER['REQUEST_METHOD'] == 'POST')
     {
 

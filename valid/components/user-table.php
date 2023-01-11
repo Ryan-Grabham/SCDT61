@@ -13,6 +13,7 @@ $members = $controllers->members()->getAll();
             <th scope="col">Admin Controls</th>
         </tr>
     </thead>
+    
     <?php
     foreach ($members as $member):
         ?>

@@ -1,4 +1,3 @@
-
 <?php $title = "User Edit";
 require __DIR__ . "/inc/header.php"; ?>
 
