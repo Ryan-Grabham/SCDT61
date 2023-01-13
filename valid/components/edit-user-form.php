@@ -16,15 +16,17 @@ if (!empty($id)){
         $fname = InputProcessor::process_string($_POST['fname'] ?? '');
         $sname = InputProcessor::process_string($_POST['sname'] ?? '');
         $email = InputProcessor::process_email($_POST['email'] ?? '');
+        $role = InputProcessor::process_string($_POST['roleid'] ?? '');
 
 
-        $valid =  $fname['valid'] && $sname['valid'] && $email['valid'];
+        $valid =  $fname['valid'] && $sname['valid'] && $email['valid'] && $role['valid'];
 
         if($valid) {
 
         $args = ['firstname' => $fname['value'] , 
                 'lastname' => $sname['value'] , 
                 'email' =>  $email['value'],
+                'roleid' => $role['value'],
                 'id' => $id ];
 
         $result = $controllers->members()->update($args);
@@ -41,7 +43,6 @@ if (!empty($id)){
     }
 
     } 
-
 
     ?>
 
@@ -71,18 +72,18 @@ if (!empty($id)){
                     </div>
 
                    
-                    <select class="form-select form-select-lg mb-4" aria-label="Default select example">
-                        <option selected>Role</option>
-                        <option value="1">User</option>
-                        <option value="2">Admin</option>
-                        <option value="3">Manager</option>
+                    <select name="roleid" class="form-select form-select-lg mb-4" aria-label="Default select example">
+                        <?php if ($_SESSION["logged_in"]["roleid"] == 1) : ?>
+                            <option selected value="1">Administrator</option>
+                            <option value="2">Customer</option>                            
+                        <?php else: ?>  
+                            <option value="1">Administrator</option>  
+                            <option selected value="2">Customer</option>
+                            
+                        <?php endif ?>    
                     </select>
                     
-              
-             
-
                     <button class="btn btn-primary btn-lg w-100 mb-4" type="submit">Save</button>
-
 
                     <?= isset($_GET['errmsg']) ? $message = $_GET['errmsg'] : '' ?>
                     <?= $message ? alert($message, 'danger') : '' ?>
@@ -98,5 +99,4 @@ if (!empty($id)){
 }
 else{
     redirect("not-found");
-
 }?>

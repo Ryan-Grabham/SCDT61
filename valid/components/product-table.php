@@ -12,6 +12,7 @@ $products = $controllers->products()->getAll();
             <th scope="col">Name</th>
             <th scope="col">Description</th>
             <th scope="col">Price (£)</th>
+            <th scope="col">Category</th>
             <th scope="col">Image</th>
             <th scope="col">Admin Controls</th>
             
@@ -20,13 +21,19 @@ $products = $controllers->products()->getAll();
     
     <?php
     foreach ($products as $product):
+        $categoryInfo = $controllers->products()->getCategoryNameById($product['categoryid']);
         ?>
         <tbody>
 
             <td><?= $product['name'] ?></td>
             <td><?= $product['description'] ?></td>
-            <td><?= $product['price'] ?></td>
-            <td><image class="col-1 img-thumbnail" src="<?= $product['image']?>"/></td>
+            <td class="col-4"><?= $product['price'] ?></td>
+            <td><?= $categoryInfo['categoryname'] ?></td>
+
+            <td>
+                <image class="col-4 img-thumbnail" src="<?= $product['image']?>"/>
+            </td>
+            
 
             <td>
                 <a class="btn btn-success" href="product-edit.php?id=<?=$product['id'] ?>"> Edit</a>
@@ -35,15 +42,21 @@ $products = $controllers->products()->getAll();
 
         </tbody>
         
+
       
 
         <?php
     endforeach;
-    
     ?>
-      <div class="col-4">
+</table>   
+     <div class="col-4 my-4">
         <a class="btn btn-secondary" href="add-product.php"> Add New Product</a>
     </div>
 
+
+
+    
+
+    
 
     

@@ -17,6 +17,7 @@ class Database extends PDO
     public function runSQL(string $sql, array $args = null)
     {
         if(!$args) { return $this->query($sql); }
+ 
         $statement = $this->prepare($sql);
         $statement->execute($args);
         return $statement;

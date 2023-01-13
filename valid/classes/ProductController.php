@@ -12,8 +12,8 @@ class ProductController
     public function create(array $product) : int
     {
 
-            $sql = "INSERT INTO products(name, description, price, image)
-                    VALUES (:name, :description, :price, :image);";
+            $sql = "INSERT INTO products(name, description, price, image, categoryid)
+                    VALUES (:name, :description, :price, :image, :categoryid);";
             $this->db->runSQL($sql, $product);
             return $this->db->lastInsertId();
 
@@ -32,13 +32,22 @@ class ProductController
         return $this->db->runSQL($sql) -> fetchAll();
     }
 
+    public function getCategoryNameById(int $categoryId) 
+    {
+        $sql = "SELECT categoryname FROM categories WHERE categoryid = :categoryId";
+        $args = ['categoryId' => $categoryId];
+        return $this->db->runSQL($sql, $args) -> fetch();
+    }
+
     public function update(array $product) : bool
     {
         $sql = "UPDATE products 
                 SET name = :name, 
                     description = :description, 
                     price = :price, 
-                    image = :image
+                    image = :image,
+                    categoryid = :categoryid
+
                 WHERE id = :id;";
         
         return $this->db->runSQL($sql, $product)->execute();

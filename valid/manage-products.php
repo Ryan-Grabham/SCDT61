@@ -1,4 +1,4 @@
-<?php $title = "Login Page";
+<?php $title = "Manage Products";
 require __DIR__ . "/inc/header.php"; ?>
 
 <section class="vh-100 text-center">
@@ -11,4 +11,7 @@ require __DIR__ . "/inc/header.php"; ?>
 
 
 
+
+
 <?php require __DIR__ . "/inc/footer.php"; ?>
+

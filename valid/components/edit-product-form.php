@@ -17,8 +17,9 @@ if (!empty($id)){
         $description = InputProcessor::process_string($_POST['description'] ?? '');
         $price = InputProcessor::process_string($_POST['price'] ?? '');
         $image = InputProcessor::process_file($_FILES['image'] ?? []);
+        $category = InputProcessor::process_string($_POST['categoryid'] ?? []);
 
-        $valid =  $name['valid'] && $description['valid'] && $price['valid'] && $image['valid'];
+        $valid =  $name['valid'] && $description['valid'] && $price['valid'] && $image['valid'] && $category['valid'];
 
         if($valid) {
 
@@ -34,6 +35,7 @@ if (!empty($id)){
                 'description' => $description['value'] , 
                 'price' => $price['value'] ,
                 'image' =>  $image['value'],
+                'categoryid' => $category['value'],
                 'id' => $id 
                 ];
 
@@ -79,6 +81,23 @@ if (!empty($id)){
                     <input type="number" id="price" name="price" class="form-control form-control-lg" placeholder="Price" required value="<?= htmlspecialchars($product['price'] ?? '') ?>"/>
                     <span class="text-danger"><?= $price['error'] ?? '' ?></span>
                     </div>
+
+                    <select name="categoryid" class="form-select form-select-lg mb-4" aria-label="Default select example">
+                        <?php if ($_SESSION["logged_in"]["categoryid"] == 1) : ?>
+                            <option selected value="1">Flowers</option>
+                            <option value="2">Seeds</option>
+                            <option value="3">Pots</option>                              
+                        <?php elseif (["categoryid"] == 2): ?>  
+                            <option value="1">Flowers</option>
+                            <option selected value="2">Seeds</option>
+                            <option value="3">Pots</option> 
+                        <?php else: ?>  
+                            <option value="1">Flowers</option>
+                            <option value="2">Seeds</option>
+                            <option selected value="3">Pots</option>
+                            
+                        <?php endif ?>    
+                    </select>
 
                     <div class="mb-4">
                     <image class="img-thumbnail" src="<?= $product['image'] ?>" />

@@ -1,0 +1,9 @@
+.cardHeightMax{
+    height: 100%;
+}
+
+.cardImageSize{
+    width: 100%;
+    height: 20vw;
+    object-fit: cover; 
+}

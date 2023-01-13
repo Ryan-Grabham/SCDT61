@@ -16,7 +16,7 @@ class MemberController
             $member['password'] = password_hash($member['password'], PASSWORD_DEFAULT);
 
             $sql = "INSERT INTO users(firstname, lastname, password, email, roleid)
-                    VALUES (:firstname, :lastname, :password, :email, 2);";
+                    VALUES (:firstname, :lastname, :password, :email, roleid);";
     
             $this->db->runSQL($sql, $member);
 
@@ -65,7 +65,7 @@ class MemberController
                 SET firstname = :firstname, 
                     lastname = :lastname, 
                     email = :email,
-                    roleid = :role,                    
+                    roleid = :roleid                   
                 WHERE id = :id;";
         
         return $this->db->runSQL($sql, $member)->execute();

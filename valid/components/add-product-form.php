@@ -13,8 +13,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     $description = InputProcessor::process_string($_POST['description'] ?? '');
     $price = InputProcessor::process_string($_POST['price'] ?? '');
     $image = InputProcessor::process_file($_FILES['image'] ?? []);
+    $category = InputProcessor::process_string($_POST['categoryid'] ?? []);
 
-    $valid =  $name['valid'] && $description['valid'] && $price['valid'] && $image['valid'];
+    $valid =  $name['valid'] && $description['valid'] && $price['valid'] && $category['valid'] && $image['valid'];
 
     if($valid) {
 
@@ -23,7 +24,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
       $args = ['name' => $name['value'] , 
               'description' => $description['value'] , 
               'price' => $price['value'] ,
-              'image' =>  $image['value'] 
+              'image' =>  $image['value'],
+              'categoryid' => $category['value']
               ];
 
       $id = $controllers->products()->create($args);
@@ -68,6 +70,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                   <input type="number" id="price" name="price" class="form-control form-control-lg" placeholder="Price" required value="<?= htmlspecialchars($price['value'] ?? '') ?>"/>
                   <span class="text-danger"><?= $price['error'] ?? '' ?></span>
                 </div>
+
+                <select name="categoryid" class="form-select form-select-lg mb-4" aria-label="Default select example">
+                            <option selected value="1">Flowers</option>
+                            <option value="2">Seeds</option>
+                            <option value="3">Pots</option>                               
+                    </select>
     
                 <div class="form-outline mb-4">
                   <input type="file" accept="image/*" id="image" name="image" class="form-control form-control-lg" placeholder="Select Image"required />
