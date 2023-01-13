@@ -10,12 +10,14 @@ $members = $controllers->members()->getAll();
             <th scope="col">First</th>
             <th scope="col">Last</th>
             <th scope="col">Email</th>
+            <th scope="col">Role</th>
             <th scope="col">Admin Controls</th>
         </tr>
     </thead>
     
     <?php
     foreach ($members as $member):
+        $roleInfo = $controllers->members()->getRoleNameById($member['roleid']);
         ?>
         <tbody>
 
@@ -23,6 +25,7 @@ $members = $controllers->members()->getAll();
             <td><?= $member['firstname'] ?></td>
             <td><?= $member['lastname'] ?></td>
             <td><?= $member['email'] ?></td>
+            <td><?= $roleInfo['rolename'] ?></td>
 
             <td>
                 <a class="btn btn-success" href="user-edit.php?id=<?=$member['id'] ?>"> Edit</a>

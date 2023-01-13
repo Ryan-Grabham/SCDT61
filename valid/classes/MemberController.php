@@ -15,8 +15,8 @@ class MemberController
 
             $member['password'] = password_hash($member['password'], PASSWORD_DEFAULT);
 
-            $sql = "INSERT INTO users(firstname, lastname, password, email)
-                    VALUES (:firstname, :lastname, :password, :email);";
+            $sql = "INSERT INTO users(firstname, lastname, password, email, roleid)
+                    VALUES (:firstname, :lastname, :password, :email, 2);";
     
             $this->db->runSQL($sql, $member);
 
@@ -52,12 +52,20 @@ class MemberController
         return $this->db->runSQL($sql, $args) -> fetch();
     }
 
+    public function getRoleNameById(int $roleId) 
+    {
+        $sql = "SELECT rolename FROM roles WHERE roleid = :roleId";
+        $args = ['roleId' => $roleId];
+        return $this->db->runSQL($sql, $args) -> fetch();
+    }
+
     public function update(array $member) : bool
     {
         $sql = "UPDATE users 
                 SET firstname = :firstname, 
                     lastname = :lastname, 
-                    email = :email
+                    email = :email,
+                    roleid = :role,                    
                 WHERE id = :id;";
         
         return $this->db->runSQL($sql, $member)->execute();
@@ -71,7 +79,7 @@ class MemberController
 
     public function login(string $email, string $password)
     {
-        $sql = "SELECT firstname, lastname, email, password
+        $sql = "SELECT firstname, lastname, email, password, roleid
         FROM users
         WHERE email = :email;";
 

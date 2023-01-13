@@ -1,5 +1,14 @@
-<?php $title = "Login Page";
-require __DIR__ . "/inc/header.php"; ?>
+<?php 
+
+$title = "Login Page";
+require __DIR__ . "/inc/header.php";
+
+if (isset($_SESSION["logged_in"])) {
+    if ($_SESSION["logged_in"]["roleid"] != 1) {
+        redirect('index');
+    }
+}
+?>
 
 <section class="vh-100 text-center">
     <div class="container py-5 h-75">

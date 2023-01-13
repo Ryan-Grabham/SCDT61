@@ -70,6 +70,17 @@ if (!empty($id)){
                     <span class="text-danger"><?= $email['error'] ?? '' ?></span>
                     </div>
 
+                   
+                    <select class="form-select form-select-lg mb-4" aria-label="Default select example">
+                        <option selected>Role</option>
+                        <option value="1">User</option>
+                        <option value="2">Admin</option>
+                        <option value="3">Manager</option>
+                    </select>
+                    
+              
+             
+
                     <button class="btn btn-primary btn-lg w-100 mb-4" type="submit">Save</button>
 
 

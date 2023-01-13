@@ -7,7 +7,7 @@
     $port ='3306';
     $charset = 'latin1';
     $driver = 'mysql';
-
+    
     $username = 'root';
     $password = '';
 
