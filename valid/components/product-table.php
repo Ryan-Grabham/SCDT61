@@ -36,8 +36,8 @@ $products = $controllers->products()->getAll();
             
 
             <td>
-                <a class="btn btn-success" href="product-edit.php?id=<?=$product['id'] ?>"> Edit</a>
-                <a class="btn btn-danger" href="product-delete.php?id=<?=$product['id'] ?>">Delete</a>
+                <a class="btn btn-success" id="edit-btn" href="product-edit.php?id=<?=$product['id'] ?>"> Edit</a>
+                <a class="btn btn-danger" id="delete-btn" href="product-delete.php?id=<?=$product['id'] ?>">Delete</a>
             </td>
 
         </tbody>
@@ -50,7 +50,7 @@ $products = $controllers->products()->getAll();
     ?>
 </table>   
      <div class="col-4 my-4">
-        <a class="btn btn-secondary" href="add-product.php"> Add New Product</a>
+        <a class="btn btn-secondary" id="add-btn" href="add-product.php"> Add New Product</a>
     </div>
 
 

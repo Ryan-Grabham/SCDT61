@@ -74,16 +74,16 @@ if (!empty($id)){
                    
                     <select name="roleid" class="form-select form-select-lg mb-4" aria-label="Default select example">
                         <?php if ($_SESSION["logged_in"]["roleid"] == 1) : ?>
-                            <option selected value="1">Administrator</option>
-                            <option value="2">Customer</option>                            
+                            <option selected value="1" id="admin" >Administrator</option>
+                            <option value="2" id="customer" >Customer</option>                            
                         <?php else: ?>  
-                            <option value="1">Administrator</option>  
-                            <option selected value="2">Customer</option>
+                            <option value="1" id="admin" >Administrator</option>  
+                            <option selected value="2" id="customer" >Customer</option>
                             
                         <?php endif ?>    
                     </select>
                     
-                    <button class="btn btn-primary btn-lg w-100 mb-4" type="submit">Save</button>
+                    <button class="btn btn-primary btn-lg w-100 mb-4" id="submitEdit"type="submit">Save</button>
 
                     <?= isset($_GET['errmsg']) ? $message = $_GET['errmsg'] : '' ?>
                     <?= $message ? alert($message, 'danger') : '' ?>

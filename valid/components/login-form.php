@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                 </div>
   
               <button class="btn btn-primary btn-lg w-100 mb-4" type="submit">Login</button>
-              <a class="btn btn-secondary btn-lg w-100" type="submit" href="./register.php" >Not got an account?</a>
+              <a class="btn btn-secondary btn-lg w-100" id="registerAcc" type="submit" href="./register.php" >Not got an account?</a>
               
               <?= isset($_GET['errmsg']) ? $message = $_GET['errmsg'] : '' ?>
               <?= $message ? alert($message, 'danger') : '' ?>

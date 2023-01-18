@@ -16,7 +16,7 @@
 </head>
 
 <body class="bg-primary">
-  <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="./index.php">Online Shop</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -37,7 +37,7 @@
                     <a class="nav-link" href="./manage-users.php">Manage Users</i></a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="./manage-products.php">Manage Products</i></a>
+                    <a class="nav-link" id="manage-products" href="./manage-products.php">Manage Products</i></a>
                   </li> 
             <?php
             }
@@ -48,7 +48,7 @@
           <li class="nav-item">
             <?php
             if (!isset($_SESSION["logged_in"])) {
-              echo '<a class="nav-link" href="./login.php"><i class="bi bi-person-circle" style="font-size: 2rem"></i></a>';
+              echo '<a class="nav-link" id="account" href="./login.php"><i class="bi bi-person-circle"  style="font-size: 2rem"></i></a>';
             } else {
               echo '<a class="btn btn-danger" href="./logout.php" type="submit">Logout</a>';
             }

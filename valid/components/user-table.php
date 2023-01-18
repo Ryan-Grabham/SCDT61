@@ -28,8 +28,8 @@ $members = $controllers->members()->getAll();
             <td><?= $roleInfo['rolename'] ?></td>
 
             <td>
-                <a class="btn btn-success" href="user-edit.php?id=<?=$member['id'] ?>"> Edit</a>
-                <a class="btn btn-danger" href="user-delete.php?id=<?=$member['id'] ?>">Delete</a>
+                <a class="btn btn-success" id="edit-btn" href="user-edit.php?id=<?=$member['id'] ?>"> Edit</a>
+                <a class="btn btn-danger" id="delete-btn" href="user-delete.php?id=<?=$member['id'] ?>">Delete</a>
             </td>
 
         </tbody>

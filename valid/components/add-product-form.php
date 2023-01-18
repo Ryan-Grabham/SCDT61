@@ -72,16 +72,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                 </div>
 
                 <select name="categoryid" class="form-select form-select-lg mb-4" aria-label="Default select example">
-                            <option selected value="1">Flowers</option>
-                            <option value="2">Seeds</option>
-                            <option value="3">Pots</option>                               
+                            <option selected value="1" id="flowers" >Flowers</option>
+                            <option value="2" id="seeds" >Seeds</option>
+                            <option value="3" id="pots" >Pots</option>                               
                     </select>
     
                 <div class="form-outline mb-4">
                   <input type="file" accept="image/*" id="image" name="image" class="form-control form-control-lg" placeholder="Select Image"required />
                 </div>
     
-                <button class="btn btn-primary btn-lg w-100 mb-4" type="submit">Add Product</button>
+                <button class="btn btn-primary btn-lg w-100 mb-4" id="submitAdd" type="submit">Add Product</button>
                
                 <?= isset($_GET['errmsg']) ? $message = $_GET['errmsg'] : '' ?>
                 <?= $message ? alert($message, 'danger') : '' ?>
